@@ -11,6 +11,8 @@ public class SpiderScript : LifeScript {
     private NavMeshAgent agent;
     bool waitActive = false; //so wait function wouldn't be called many times per frame
     private bool isAttack = false;
+    public Component TriggerObject;
+    private BoxCollider DoorCollider;
     
     public override void Damage(int d)
     {
@@ -28,6 +30,7 @@ public class SpiderScript : LifeScript {
     private void Start()
     {
         // agent.destination = Destination.position;
+        DoorCollider = TriggerObject.GetComponent<BoxCollider>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
@@ -35,8 +38,7 @@ public class SpiderScript : LifeScript {
     private void Update()
     {
         //agent = GetComponent<NavMeshAgent>();
-        if(!isAttack)
-            agent.destination = Destination.position;
+        if (!isAttack && DoorCollider.isTrigger) { agent.destination = Destination.position; }
     }
 
     private void OnTriggerStay(Collider other)
