@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Spider
   - BoxWithIndice
+  - SpiderDied
+  - Bullet
   layers:
   - Default
   - TransparentFX
