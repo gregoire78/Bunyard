@@ -8,13 +8,10 @@ public class DoorConditionScript : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            if (GameObject.FindGameObjectsWithTag("Spider").Length > 0)
+            Debug.Log(GameObject.FindGameObjectsWithTag("Spider").Length <= 0 && !GameObject.FindGameObjectWithTag("BoxWithThirdIndice"));
+            if (GameObject.FindGameObjectsWithTag("Spider").Length <= 0 && !GameObject.FindGameObjectWithTag("BoxWithThirdIndice"))
             {
-                gameObject.GetComponent<DoorScript>().enabled = false;
-            }
-            else
-            {
-                gameObject.GetComponent<DoorScript>().enabled = true;
+                gameObject.transform.parent.GetComponent<BoxCollider>().enabled = true;
             }
         }
     }

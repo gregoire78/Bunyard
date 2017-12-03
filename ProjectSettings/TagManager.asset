@@ -8,6 +8,10 @@ TagManager:
   - BoxWithIndice
   - SpiderDied
   - Bullet
+  - SpiderBox
+  - BoxWithThirdIndice
+  - M
+  - Pion
   layers:
   - Default
   - TransparentFX
